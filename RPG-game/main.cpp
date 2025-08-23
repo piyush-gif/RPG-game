@@ -12,7 +12,7 @@ public:
         shape.setPoint(2, sf::Vector2f(9.f, 19.f));  
         shape.setOrigin(0.f, 0.f);                     
         shape.setPosition(410.f, 300.f);
-
+        
     }
 
     void draw(sf::RenderWindow& window) { // to draw the traingle shape
@@ -31,6 +31,8 @@ public:
         float angle = shape.getRotation() - 90.f; // adjust so tip points upward
         float rad = angle * 3.14159265f / 180.f;  // convert to radians
 
+
+        // sin cos and tan used for getting ratio given by the angle
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
             shape.move(std::cos(rad) * speed * dt, std::sin(rad) * speed * dt);
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
