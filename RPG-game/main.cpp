@@ -5,16 +5,13 @@
 int main() {
 
 	sf::RenderWindow window(sf::VideoMode(800, 600), "Tetris");
+	window.setFramerateLimit(60);
 
-	sf::RectangleShape rectangle(sf::Vector2f(120.f, 60.f));
-	rectangle.setFillColor(sf::Color::White);
-	rectangle.setPosition(100.f, 200.f);
-
-
-	sf::CircleShape circle(50.f);
-	circle.setFillColor(sf::Color::White);
-	circle.setPosition(300.f, 180.f);
-
+	sf::RectangleShape rectangle(sf::Vector2f(700.f, 500.f));
+	rectangle.setPosition(10.f, 10.f);
+	rectangle.setFillColor(sf::Color::Transparent);
+	rectangle.setOutlineThickness(5.f);
+	rectangle.setOutlineColor(sf::Color::White);
 	float speed = 5.f;
 
 	while (window.isOpen()) {
@@ -24,24 +21,11 @@ int main() {
 				window.close();
 		}
 
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-			rectangle.move(0.f, -speed);
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-			rectangle.move(0.f, speed);
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-			rectangle.move(-speed, 0.f);
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-			rectangle.move(speed, 0.f);
-
 		window.clear(sf::Color::Black);
 
 		window.draw(rectangle);
-		window.draw(circle);
 
 		window.display();
 	}
-
-	
-
 	return 0;
 }
